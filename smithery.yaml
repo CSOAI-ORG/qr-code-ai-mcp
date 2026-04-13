@@ -1,0 +1,10 @@
+name: qr-code-ai-mcp
+description: "MEOK AI Labs — Qr Code tools for AI agents and LLMs"
+vendor: MEOK AI Labs
+homepage: https://meok.ai
+repository: https://github.com/CSOAI-ORG/qr-code-ai-mcp
+license: MIT
+categories: [Utilities, Media]
+tags: [qr-code, qr-generation, barcode, qr-scanner, visual-encoding]
+runtime: python
+entrypoint: server.py
