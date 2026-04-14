@@ -1,4 +1,9 @@
 """QR Code AI MCP Server — QR code generation and data tools."""
+
+import sys, os
+sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
+from auth_middleware import check_access
+
 import base64
 import json
 import time
@@ -39,8 +44,12 @@ def _qr_matrix(data: str) -> list[list[int]]:
     return matrix
 
 @mcp.tool()
-def generate_qr_data(content: str, error_correction: str = "M", output_format: str = "matrix") -> dict[str, Any]:
+def generate_qr_data(content: str, error_correction: str = "M", output_format: str = "matrix", api_key: str = "") -> dict[str, Any]:
     """Generate QR code data from text/URL. Returns matrix or text-art representation."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if not _rate_check("generate_qr_data"):
         return {"error": "Rate limit exceeded (50/day)"}
     if len(content) > 2000:
@@ -55,8 +64,12 @@ def generate_qr_data(content: str, error_correction: str = "M", output_format: s
     return {"content": content, "matrix": matrix, "size": len(matrix), "error_correction": error_correction, "ec_recovery_pct": ec_levels[error_correction]}
 
 @mcp.tool()
-def decode_qr_data(matrix_json: str) -> dict[str, Any]:
+def decode_qr_data(matrix_json: str, api_key: str = "") -> dict[str, Any]:
     """Analyze a QR matrix (JSON 2D array) and extract metadata."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if not _rate_check("decode_qr_data"):
         return {"error": "Rate limit exceeded (50/day)"}
     try:
@@ -77,8 +90,12 @@ def decode_qr_data(matrix_json: str) -> dict[str, Any]:
     }
 
 @mcp.tool()
-def create_vcard_qr(name: str, phone: str = "", email: str = "", org: str = "", title: str = "", url: str = "") -> dict[str, Any]:
+def create_vcard_qr(name: str, phone: str = "", email: str = "", org: str = "", title: str = "", url: str = "", api_key: str = "") -> dict[str, Any]:
     """Generate vCard data suitable for QR encoding."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if not _rate_check("create_vcard_qr"):
         return {"error": "Rate limit exceeded (50/day)"}
     parts = ["BEGIN:VCARD", "VERSION:3.0", f"FN:{name}"]
@@ -93,8 +110,12 @@ def create_vcard_qr(name: str, phone: str = "", email: str = "", org: str = "", 
     return {"vcard_data": vcard, "char_count": len(vcard), "matrix_size": len(matrix), "fields_set": len(parts) - 3}
 
 @mcp.tool()
-def create_wifi_qr(ssid: str, password: str, security: str = "WPA", hidden: bool = False) -> dict[str, Any]:
+def create_wifi_qr(ssid: str, password: str, security: str = "WPA", hidden: bool = False, api_key: str = "") -> dict[str, Any]:
     """Generate WiFi QR code data for network sharing."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if not _rate_check("create_wifi_qr"):
         return {"error": "Rate limit exceeded (50/day)"}
     sec_types = ["WPA", "WEP", "nopass", "WPA2", "WPA3"]

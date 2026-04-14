@@ -1,23 +1,98 @@
 {
   "name": "qr-code-ai-mcp",
-  "description": "MEOK AI Labs \u2014 Qr Code tools for AI agents and LLMs",
-  "vendor": "MEOK AI Labs",
-  "homepage": "https://meok.ai",
-  "repository": "https://github.com/CSOAI-ORG/qr-code-ai-mcp",
-  "runtime": "python",
-  "entrypoint": "server.py",
+  "description": "MCP server for QR code generation and data tools.",
+  "version": "1.0.0",
   "tools": [
-    "generate_qr_data",
-    "decode_qr_data",
-    "create_vcard_qr",
-    "create_wifi_qr"
-  ],
-  "categories": [
-    "Utilities",
-    "Media"
-  ],
-  "pricing": {
-    "free": "50 calls/day",
-    "pro": "$9/mo"
-  }
+    {
+      "name": "generate_qr_data",
+      "description": "Generate QR code data from text/URL. Returns matrix or text-art representation.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string"
+          },
+          "error_correction": {
+            "type": "string"
+          },
+          "output_format": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "content"
+        ]
+      }
+    },
+    {
+      "name": "decode_qr_data",
+      "description": "Analyze a QR matrix (JSON 2D array) and extract metadata.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "matrix_json": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "matrix_json"
+        ]
+      }
+    },
+    {
+      "name": "create_vcard_qr",
+      "description": "Generate vCard data suitable for QR encoding.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "org": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      }
+    },
+    {
+      "name": "create_wifi_qr",
+      "description": "Generate WiFi QR code data for network sharing.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "ssid": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "security": {
+            "type": "string"
+          },
+          "hidden": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "ssid",
+          "password"
+        ]
+      }
+    }
+  ]
 }

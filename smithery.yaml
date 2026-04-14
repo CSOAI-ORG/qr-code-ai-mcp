@@ -1,10 +1,58 @@
 name: qr-code-ai-mcp
-description: "MEOK AI Labs — Qr Code tools for AI agents and LLMs"
-vendor: MEOK AI Labs
-homepage: https://meok.ai
-repository: https://github.com/CSOAI-ORG/qr-code-ai-mcp
-license: MIT
-categories: [Utilities, Media]
-tags: [qr-code, qr-generation, barcode, qr-scanner, visual-encoding]
-runtime: python
-entrypoint: server.py
+description: MCP server for QR code generation and data tools.
+version: 1.0.0
+tools:
+- name: generate_qr_data
+  description: Generate QR code data from text/URL. Returns matrix or text-art representation.
+  parameters:
+  - name: content
+    type: string
+    required: true
+  - name: error_correction
+    type: string
+    required: false
+  - name: output_format
+    type: string
+    required: false
+- name: decode_qr_data
+  description: Analyze a QR matrix (JSON 2D array) and extract metadata.
+  parameters:
+  - name: matrix_json
+    type: string
+    required: true
+- name: create_vcard_qr
+  description: Generate vCard data suitable for QR encoding.
+  parameters:
+  - name: name
+    type: string
+    required: true
+  - name: phone
+    type: string
+    required: false
+  - name: email
+    type: string
+    required: false
+  - name: org
+    type: string
+    required: false
+  - name: title
+    type: string
+    required: false
+  - name: url
+    type: string
+    required: false
+- name: create_wifi_qr
+  description: Generate WiFi QR code data for network sharing.
+  parameters:
+  - name: ssid
+    type: string
+    required: true
+  - name: password
+    type: string
+    required: true
+  - name: security
+    type: string
+    required: false
+  - name: hidden
+    type: boolean
+    required: false
