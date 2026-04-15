@@ -1,6 +1,6 @@
 {
   "name": "qr-code-ai-mcp",
-  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 MEOK AI Labs MCP Server",
+  "description": "Qr Code Ai tools for AI agents. Capabilities: generate qr data, decode qr data, create vcard qr. Built by MEOK AI Labs.",
   "version": "1.0.0",
   "tools": [
     {
