@@ -10,6 +10,18 @@ import time
 from typing import Any
 from mcp.server.fastmcp import FastMCP
 
+from datetime import datetime, timezone
+from collections import defaultdict
+
+FREE_DAILY_LIMIT = 15
+_usage = defaultdict(list)
+def _rl(c="anon"):
+    now = datetime.now(timezone.utc)
+    _usage[c] = [t for t in _usage[c] if (now-t).total_seconds() < 86400]
+    if len(_usage[c]) >= FREE_DAILY_LIMIT: return json.dumps({"error": f"Limit {FREE_DAILY_LIMIT}/day"})
+    _usage[c].append(now); return None
+
+
 mcp = FastMCP("qr-code-ai", instructions="MEOK AI Labs MCP Server")
 _calls: dict[str, list[float]] = {}
 DAILY_LIMIT = 50
@@ -49,6 +61,7 @@ def generate_qr_data(content: str, error_correction: str = "M", output_format: s
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+    if err := _rl(): return err
 
     if not _rate_check("generate_qr_data"):
         return {"error": "Rate limit exceeded (50/day)"}
@@ -69,6 +82,7 @@ def decode_qr_data(matrix_json: str, api_key: str = "") -> dict[str, Any]:
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+    if err := _rl(): return err
 
     if not _rate_check("decode_qr_data"):
         return {"error": "Rate limit exceeded (50/day)"}
@@ -95,6 +109,7 @@ def create_vcard_qr(name: str, phone: str = "", email: str = "", org: str = "", 
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+    if err := _rl(): return err
 
     if not _rate_check("create_vcard_qr"):
         return {"error": "Rate limit exceeded (50/day)"}
@@ -115,6 +130,7 @@ def create_wifi_qr(ssid: str, password: str, security: str = "WPA", hidden: bool
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+    if err := _rl(): return err
 
     if not _rate_check("create_wifi_qr"):
         return {"error": "Rate limit exceeded (50/day)"}
