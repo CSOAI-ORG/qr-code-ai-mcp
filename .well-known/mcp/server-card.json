@@ -1,0 +1,53 @@
+{
+  "name": "qr-code-ai",
+  "description": "Qr Code Ai tools powered by MEOK AI Labs.",
+  "version": "1.0.0",
+  "protocol_version": "2025-11-25",
+  "publisher": {
+    "name": "MEOK AI Labs",
+    "url": "https://meok.ai",
+    "email": "nicholas@meok.ai"
+  },
+  "repository": "https://github.com/CSOAI-ORG/qr-code-ai-mcp",
+  "license": "MIT",
+  "transport": [
+    "stdio",
+    "streamable-http"
+  ],
+  "authentication": {
+    "type": "api-key",
+    "free_tier": true,
+    "free_limit": "15 calls/day"
+  },
+  "tools": [
+    {
+      "name": "generate_qr_data",
+      "description": "Generate QR code data from text/URL. Returns matrix or text-art representation."
+    },
+    {
+      "name": "decode_qr_data",
+      "description": "Analyze a QR matrix (JSON 2D array) and extract metadata."
+    },
+    {
+      "name": "create_vcard_qr",
+      "description": "Generate vCard data suitable for QR encoding."
+    },
+    {
+      "name": "create_wifi_qr",
+      "description": "Generate WiFi QR code data for network sharing."
+    }
+  ],
+  "categories": [
+    "AI & Machine Learning",
+    "Developer Tools"
+  ],
+  "pricing": {
+    "free": {
+      "calls_per_day": 15
+    },
+    "pro": {
+      "price": "$29/month",
+      "url": "https://meok.ai/pricing"
+    }
+  }
+}
