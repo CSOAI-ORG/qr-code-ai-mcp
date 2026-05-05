@@ -1,72 +1,38 @@
-# Qr Code Ai
+<div align="center">
 
-> By [MEOK AI Labs](https://meok.ai) — MEOK AI Labs MCP Server
+[![GitHub stars](https://img.shields.io/github/stars/CSOAI-ORG/qr-code-ai-mcp)](https://github.com/CSOAI-ORG/qr-code-ai-mcp/stargazers)
 
-QR Code AI MCP Server — QR code generation and data tools.
+# uqrU codeU aiU mcp
+
+**QR Code AI MCP Server — QR code generation and data tools.**
+
+[![npm version](https://img.shields.io/npm/v/@meok-ai/qr-code-ai-mcp)](https://www.npmjs.com/package/@meok-ai/qr-code-ai-mcp)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![MEOK AI Labs](https://img.shields.io/badge/MEOK_AI_Labs-255+_servers-purple)](https://meok.ai)
+
+[Installation](#installation) · [Docs](https://csoai.org) · [Report Bug](https://github.com/CSOAI-ORG/qr-code-ai-mcp/issues)
+
+</div>
+
+---
 
 ## Installation
 
 ```bash
 pip install qr-code-ai-mcp
+# or
+npm install -g @meok-ai/qr-code-ai-mcp
 ```
 
-## Usage
+## Quick Start
 
-```bash
-# Run standalone
-python server.py
+See the project repository for full documentation and examples.
 
-# Or via MCP
-mcp install qr-code-ai-mcp
-```
+## Enterprise Support
 
-## Tools
-
-### `generate_qr_data`
-Generate QR code data from text/URL. Returns matrix or text-art representation.
-
-**Parameters:**
-- `content` (str)
-- `error_correction` (str)
-- `output_format` (str)
-
-### `decode_qr_data`
-Analyze a QR matrix (JSON 2D array) and extract metadata.
-
-**Parameters:**
-- `matrix_json` (str)
-
-### `create_vcard_qr`
-Generate vCard data suitable for QR encoding.
-
-**Parameters:**
-- `name` (str)
-- `phone` (str)
-- `email` (str)
-- `org` (str)
-- `title` (str)
-- `url` (str)
-
-### `create_wifi_qr`
-Generate WiFi QR code data for network sharing.
-
-**Parameters:**
-- `ssid` (str)
-- `password` (str)
-- `security` (str)
-- `hidden` (bool)
-
-
-## Authentication
-
-Free tier: 15 calls/day. Upgrade at [meok.ai/pricing](https://meok.ai/pricing) for unlimited access.
-
-## Links
-
-- **Website**: [meok.ai](https://meok.ai)
-- **GitHub**: [CSOAI-ORG/qr-code-ai-mcp](https://github.com/CSOAI-ORG/qr-code-ai-mcp)
-- **PyPI**: [pypi.org/project/qr-code-ai-mcp](https://pypi.org/project/qr-code-ai-mcp/)
+- 📧 nicholas@csoai.org
+- 🌐 [CSOAI.org](https://csoai.org)
 
 ## License
 
-MIT — MEOK AI Labs
+MIT © [CSOAI](https://csoai.org)
