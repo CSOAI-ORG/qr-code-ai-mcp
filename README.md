@@ -1,3 +1,5 @@
+[![qr-code-ai-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/qr-code-ai-mcp/badges/card.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/qr-code-ai-mcp)
+
 <div align="center">
 
 [![GitHub stars](https://img.shields.io/github/stars/CSOAI-ORG/qr-code-ai-mcp)](https://github.com/CSOAI-ORG/qr-code-ai-mcp/stargazers)
