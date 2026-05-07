@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 [project]
 name = "qr-code-ai-mcp"
-version = "1.0.3"
+version = "1.0.4"
 readme = "README.md"
 description = "Qr Code Ai tools for AI agents. Capabilities: generate qr data, decode qr data, create vcard qr. Built by MEOK AI Labs."
 license = {file = "LICENSE"}
