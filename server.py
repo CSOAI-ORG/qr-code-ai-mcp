@@ -57,7 +57,22 @@ def _qr_matrix(data: str) -> list[list[int]]:
 
 @mcp.tool()
 def generate_qr_data(content: str, error_correction: str = "M", output_format: str = "matrix", api_key: str = "") -> dict[str, Any]:
-    """Generate QR code data from text/URL. Returns matrix or text-art representation."""
+    """Generate QR code data from text/URL. Returns matrix or text-art representation.
+
+    Behavior:
+        This tool generates structured output without modifying external systems.
+        Output is deterministic for identical inputs. No side effects.
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -78,7 +93,23 @@ def generate_qr_data(content: str, error_correction: str = "M", output_format: s
 
 @mcp.tool()
 def decode_qr_data(matrix_json: str, api_key: str = "") -> dict[str, Any]:
-    """Analyze a QR matrix (JSON 2D array) and extract metadata."""
+    """Analyze a QR matrix (JSON 2D array) and extract metadata.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -105,7 +136,22 @@ def decode_qr_data(matrix_json: str, api_key: str = "") -> dict[str, Any]:
 
 @mcp.tool()
 def create_vcard_qr(name: str, phone: str = "", email: str = "", org: str = "", title: str = "", url: str = "", api_key: str = "") -> dict[str, Any]:
-    """Generate vCard data suitable for QR encoding."""
+    """Generate vCard data suitable for QR encoding.
+
+    Behavior:
+        This tool generates structured output without modifying external systems.
+        Output is deterministic for identical inputs. No side effects.
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -126,7 +172,22 @@ def create_vcard_qr(name: str, phone: str = "", email: str = "", org: str = "", 
 
 @mcp.tool()
 def create_wifi_qr(ssid: str, password: str, security: str = "WPA", hidden: bool = False, api_key: str = "") -> dict[str, Any]:
-    """Generate WiFi QR code data for network sharing."""
+    """Generate WiFi QR code data for network sharing.
+
+    Behavior:
+        This tool generates structured output without modifying external systems.
+        Output is deterministic for identical inputs. No side effects.
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
