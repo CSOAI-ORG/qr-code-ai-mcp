@@ -72,6 +72,13 @@ def generate_qr_data(content: str, error_correction: str = "M", output_format: s
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        content (str): The content to analyze or process.
+        error_correction (str): The error correction to analyze or process.
+        output_format (str): The output format to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -123,6 +130,11 @@ def decode_qr_data(matrix_json: str, api_key: str = "") -> dict[str, Any]:
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        matrix_json (str): The matrix json to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -179,6 +191,16 @@ def create_vcard_qr(name: str, phone: str = "", email: str = "", org: str = "", 
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        name (str): The name to analyze or process.
+        phone (str): The phone to analyze or process.
+        email (str): The email to analyze or process.
+        org (str): The org to analyze or process.
+        title (str): The title to analyze or process.
+        url (str): The url to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -229,6 +251,14 @@ def create_wifi_qr(ssid: str, password: str, security: str = "WPA", hidden: bool
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        ssid (str): The ssid to analyze or process.
+        password (str): The password to analyze or process.
+        security (str): The security to analyze or process.
+        hidden (bool): The hidden to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
