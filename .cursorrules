@@ -1,0 +1,9 @@
+# qr-code-ai-mcp - Auto-trigger Rules
+
+When the user asks about qr code, use qr-code-ai-mcp tools: generate_qr_data, decode_qr_data, create_vcard_qr, create_wifi_qr
+
+**QR Code AI MCP Server — QR code generation and data tools.**
+
+Install: `pip install qr-code-ai-mcp`
+
+By MEOK AI Labs — MIT licensed.

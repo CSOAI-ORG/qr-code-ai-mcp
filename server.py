@@ -1,7 +1,7 @@
-"""QR Code AI MCP Server — QR code generation and data tools."""
+"""
+QR Code AI MCP Server — QR code generation and data tools."""
 
 import sys, os
-sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
 from auth_middleware import check_access
 
 import base64
@@ -96,7 +96,7 @@ def generate_qr_data(content: str, error_correction: str = "M", output_format: s
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _rl(): return err
 
     if not _rate_check("generate_qr_data"):
@@ -152,7 +152,7 @@ def decode_qr_data(matrix_json: str, api_key: str = "") -> dict[str, Any]:
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _rl(): return err
 
     if not _rate_check("decode_qr_data"):
@@ -218,7 +218,7 @@ def create_vcard_qr(name: str, phone: str = "", email: str = "", org: str = "", 
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _rl(): return err
 
     if not _rate_check("create_vcard_qr"):
@@ -276,7 +276,7 @@ def create_wifi_qr(ssid: str, password: str, security: str = "WPA", hidden: bool
     """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
-        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+        return {"error": msg, "upgrade_url": "https://councilof.ai"}
     if err := _rl(): return err
 
     if not _rate_check("create_wifi_qr"):
@@ -290,5 +290,8 @@ def create_wifi_qr(ssid: str, password: str, security: str = "WPA", hidden: bool
     matrix = _qr_matrix(wifi_str)
     return {"wifi_data": wifi_str, "ssid": ssid, "security": security, "hidden": hidden, "matrix_size": len(matrix)}
 
-if __name__ == "__main__":
+def main():
     mcp.run()
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,33 @@
+# qr-code-ai-mcp
+# **QR Code AI MCP Server — QR code generation and data tools.**
+
+## Install
+```bash
+pip install qr-code-ai-mcp
+```
+
+## Auth & Rate Limits
+- Free tier: 10 calls/day. No API key required.
+- Pro tier (£79/mo): unlimited + signed attestations.
+- Enterprise (£1,499/mo): white-label.
+
+## Tools
+
+### `generate_qr_data`
+Generate QR code data from text/URL. Returns matrix or text-art representation.
+
+### `decode_qr_data`
+Analyze a QR matrix (JSON 2D array) and extract metadata.
+
+### `create_vcard_qr`
+Generate vCard data suitable for QR encoding.
+
+### `create_wifi_qr`
+Generate WiFi QR code data for network sharing.
+
+
+## Maintainer
+MEOK AI Labs · hello@meok.ai · https://meok.ai · MIT licensed
+
+## Pairs with
+Governance moat: pair this tool with any of MEOK's 38 governance MCPs (EU AI Act, DORA, NIS2, CRA, GDPR, ISO 42001, etc.) for full compliance coverage.
