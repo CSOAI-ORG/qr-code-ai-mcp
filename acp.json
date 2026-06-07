@@ -1,0 +1,22 @@
+{
+  "acpVersion": "0.1",
+  "agent": {
+    "name": "qr-code-ai-mcp",
+    "description": "Qr Code Ai MCP Server by MEOK AI Labs",
+    "version": "1.0.6",
+    "provider": "MEOK AI Labs",
+    "interfaces": [
+      {
+        "type": "mcp",
+        "transport": "stdio",
+        "package": "qr-code-ai-mcp"
+      }
+    ],
+    "capabilities": [
+      "generate_qr_data",
+      "decode_qr_data",
+      "create_vcard_qr",
+      "create_wifi_qr"
+    ]
+  }
+}

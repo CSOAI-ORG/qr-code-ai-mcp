@@ -1,0 +1,59 @@
+{
+  "name": "qr-code-ai-mcp",
+  "description": "Qr Code Ai MCP Server by MEOK AI Labs",
+  "url": "https://proofof.ai/scorecard/qr-code-ai-mcp.html",
+  "version": "1.0.6",
+  "protocolVersion": "0.2.0",
+  "provider": {
+    "organization": "MEOK AI Labs",
+    "url": "https://meok.ai"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": [
+    "text"
+  ],
+  "defaultOutputModes": [
+    "text"
+  ],
+  "skills": [
+    {
+      "id": "generate_qr_data",
+      "name": "Generate Qr Data",
+      "description": "generate_qr_data via qr-code-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "decode_qr_data",
+      "name": "Decode Qr Data",
+      "description": "decode_qr_data via qr-code-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "create_vcard_qr",
+      "name": "Create Vcard Qr",
+      "description": "create_vcard_qr via qr-code-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "create_wifi_qr",
+      "name": "Create Wifi Qr",
+      "description": "create_wifi_qr via qr-code-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    }
+  ]
+}
